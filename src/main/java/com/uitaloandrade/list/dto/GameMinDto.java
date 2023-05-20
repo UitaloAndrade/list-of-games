@@ -2,7 +2,7 @@ package com.uitaloandrade.list.dto;
 
 import com.uitaloandrade.list.entities.Game;
 
-public class GameMinDto {
+public class GameMinDTO {
 
 	private Long id;
 	private String title;
@@ -10,10 +10,10 @@ public class GameMinDto {
 	private String imgUrl;
 	private String shortDescription;
 	
-	public GameMinDto() {
+	public GameMinDTO() {
 	}
 
-	public GameMinDto(Game entity) {
+	public GameMinDTO(Game entity) {
 		this.id = entity.getId();
 		this.title = entity.getTitle();
 		this.year = entity.getYear();

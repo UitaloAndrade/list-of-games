@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.uitaloandrade.list.dto.GameMinDto;
+import com.uitaloandrade.list.dto.GameMinDTO;
 import com.uitaloandrade.list.services.GameService;
 
 @RestController // usado para tornar essa classe a controladora da API.
@@ -19,8 +19,8 @@ public class GameController { // Responsavel por fornecer os dados para o front,
 	
 	// mapeamento da requisicao HTTP
 	@GetMapping // endPoint para buscar os objetos
-	public List<GameMinDto> findAll(){
-		List<GameMinDto> result = gameService.findAll();
+	public List<GameMinDTO> findAll(){
+		List<GameMinDTO> result = gameService.findAll();
 		return result;
 	}
 }

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.uitaloandrade.list.dto.GameMinDto;
+import com.uitaloandrade.list.dto.GameMinDTO;
 import com.uitaloandrade.list.entities.Game;
 import com.uitaloandrade.list.repositories.GameRepository;
 
@@ -22,10 +22,10 @@ public class GameService {
 	@Autowired // anotation usado para criar dependencias
 	private GameRepository gameRepository;
 	
-	public List<GameMinDto> findAll(){
+	public List<GameMinDTO> findAll(){
 		List<Game> result = gameRepository.findAll(); // metodo usado para fazer uma consulta ao BD e retornar todos os dados
 		//stream permite fazer operacoes com uma sequencia de dados.
-		return result.stream().map(x -> new GameMinDto(x)).toList();
+		return result.stream().map(x -> new GameMinDTO(x)).toList();
 	}
 
 }
