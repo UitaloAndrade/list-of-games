@@ -4,10 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.uitaloandrade.list.dto.GameDTO;
 import com.uitaloandrade.list.dto.GameMinDTO;
 import com.uitaloandrade.list.entities.Game;
 import com.uitaloandrade.list.repositories.GameRepository;
+
 
 /*
  * Como essa classe e uma classe comum, e preciso registrar ela como sendo um componente do sistema
@@ -22,6 +25,17 @@ public class GameService {
 	@Autowired // anotation usado para criar dependencias
 	private GameRepository gameRepository;
 	
+	/*
+	 * usado para indicar que e uma transacao, e uma boa pratica
+	 * o parametro colocado e para indicar que nao havera operacao de escrita, resultado em uma pesquisa mais rapida
+	 */
+	@Transactional(readOnly = true)
+	public GameDTO findById(Long id) {
+		Game result = gameRepository.findById(id).get();
+		return new GameDTO(result);
+	}
+	
+	@Transactional(readOnly = true)
 	public List<GameMinDTO> findAll(){
 		List<Game> result = gameRepository.findAll(); // metodo usado para fazer uma consulta ao BD e retornar todos os dados
 		//stream permite fazer operacoes com uma sequencia de dados.
